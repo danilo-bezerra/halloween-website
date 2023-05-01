@@ -26,8 +26,8 @@ const heroTexts = {
   },
 };
 
-type Props = "/" | "/tickets" | "/program" | "/about" | "/contact";
+export type HeroTextPathProps = "/" | "/tickets" | "/program" | "/about" | "/contact";
 
-export function getHeroText(location: Props): IHeroText {
+export function getHeroText(location: HeroTextPathProps): IHeroText {
   return heroTexts[location];
 }

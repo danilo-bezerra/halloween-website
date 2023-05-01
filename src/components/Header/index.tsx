@@ -5,15 +5,17 @@ import { Nav } from "../Nav";
 import { Hero } from "../Hero";
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { getHeroText } from "../../utils/getHeroText";
+import { HeroTextPathProps, getHeroText } from "../../utils/getHeroText";
 
 export function Header() {
   const location = useLocation();
 
-  const [heroText, setHeroText] = useState(getHeroText(location.pathname));
+  const [heroText, setHeroText] = useState(
+    getHeroText(location.pathname as HeroTextPathProps)
+  );
 
   useEffect(() => {
-    const newHeroText = getHeroText(location.pathname);
+    const newHeroText = getHeroText(location.pathname as HeroTextPathProps);
     setHeroText(newHeroText);
   }, [location]);
 
