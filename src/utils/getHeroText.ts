@@ -1,3 +1,8 @@
+interface IHeroText {
+  prefix: string;
+  title: string;
+}
+
 const heroTexts = {
   "/": {
     prefix: "Halloween",
@@ -21,13 +26,8 @@ const heroTexts = {
   },
 };
 
-interface IHeroText {
-  prefix: string;
-  title: string;
-}
-
 type Props = "/" | "/tickets" | "/program" | "/about" | "/contact";
 
-export function getHeroText(location: string): IHeroText {
+export function getHeroText(location: Props): IHeroText {
   return heroTexts[location];
 }
